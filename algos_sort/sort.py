@@ -45,7 +45,7 @@ def partition(a, left, right):
     swap(a,i,right)
     return i
 
-# 快速排序递归
+## 递归
 def quicksort(a, left, right):
     
     if right-left<1:
@@ -55,7 +55,7 @@ def quicksort(a, left, right):
         quicksort(a,left,i-1)
         quicksort(a, i+1,right)
         
-# 快速排序非递归
+## 非递归
 def quicksort2(a, left, right):
     stack_t=[]
     stack_t.append(left)
