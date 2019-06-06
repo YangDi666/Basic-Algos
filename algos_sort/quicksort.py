@@ -35,8 +35,8 @@ def partition(a, left, right):
 def quicksort(a, left, right):   
     if right-left<1:
         return
-    elif right-left<=10:
-        insertionsort.insertionsort(a, left, right)
+    #elif right-left<=10:
+    #    insertionsort.insertionsort(a, left, right)
     else:
         i=partition(a, left, right)
         quicksort(a,left,i-1)
@@ -46,8 +46,8 @@ def quicksort(a, left, right):
 def quicksort2(a, left, right):
     if right-left<1:
         return
-    elif right-left<=10:
-        insertionsort.insertionsort(a, left, right)
+    #elif right-left<=10:
+    #    insertionsort.insertionsort(a, left, right)
     else:
         stack_t=[]
         stack_t.append(left)
@@ -68,39 +68,40 @@ def quicksort2(a, left, right):
 def partition2(a, left, right):
     i=left
     j=right
-    m=left+1
+    m=right-1
     median3(a, left, right)
     pivot=a[right]
-    while m<=j:
-        if a[m]<pivot:
-            swap(a, i, m)
-            i+=1
-            m+=1
-        elif a[m]==pivot:
-            m+=1
-        else:
-            if m!=j:
-                swap(a, m, j)
+    while m>=i:
+        if a[m]>pivot:
+            swap(a, j, m)
             j-=1
-    swap(a, m, right)
-    return i, m
+            m-=1
+        elif a[m]==pivot:
+            m-=1
+        else:
+            if m!=i:
+                swap(a, m, i)
+            i+=1
+    return i, j
 
 def quicksort3(a, left,  right):
     if right-left<1:
         return
-    elif right-left<=10:
-        insertionsort.insertionsort(a, left, right)
+    #elif right-left<=10:
+    #    insertionsort.insertionsort(a, left, right)
     else:
-        i, m=partition2(a, left, right)
-        quicksort3(a, left, i)
-        quicksort3(a, m, right)
+        i, j=partition2(a, left, right)
+        quicksort3(a, left, i-1)
+        quicksort3(a, j+1, right)
           
         
 if __name__=="__main__":
     a=[10,9,5,66,1,8,3,6,5,5,8,7,4,6,8,56,6,8,6]
+    b=[10,9,5,66,1,8,3,6,5,5,8,7,4,6,8,56,6,8,6]
+    c=[10,9,5,66,1,8,3,6,5,5,8,7,4,6,8,56,6,8,6]
     quicksort(a,0, len(a)-1)
     print(a)
-    quicksort2(a,0, len(a)-1)
-    print(a)
-    quicksort3(a,0, len(a)-1)
-    print(a)
+    quicksort2(b,0, len(b)-1)
+    print(b)
+    quicksort3(c,0, len(c)-1)
+    print(c)
