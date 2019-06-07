@@ -1,3 +1,4 @@
+#归并排序
 def merge(a1, a2, left, right, end):
     i=left
     l_end=right-1
@@ -25,7 +26,7 @@ def merge(a1, a2, left, right, end):
             j+=1
     a1[left:end+1]=a2[left:end+1]
 
-# digui
+# 递归
 def merge_sort(a1, a2, left, right):
     l=left
     r=right
@@ -40,7 +41,7 @@ def mergesort(a, begin, end):
     a2=[0]*len(a)
     merge_sort(a, a2, begin, end)
 
-# fei digui
+# 非递归
 def merge_pass(a1, a2, left, right, k):
     i=left
     while right+1-i>=2*k:    
@@ -49,7 +50,6 @@ def merge_pass(a1, a2, left, right, k):
     if right+1-i>k:
         merge(a1,a2,i,i+k, right)
     
-
 def mergesort2(a, begin, end):
     a2=[0]*len(a)
     k=1
