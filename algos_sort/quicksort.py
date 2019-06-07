@@ -64,7 +64,7 @@ def quicksort2(a, left, right):
                     stack_t.append(t+1)
                     stack_t.append(j)
 
-### san fen qu
+### 三分区
 def partition2(a, left, right):
     i=left
     j=right
