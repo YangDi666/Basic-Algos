@@ -133,7 +133,7 @@ int main()
 
     Bst bst=createBst(a, n);
     inorder(bst);
-    TNode *maxNode=findMin(bst);
+    TNode *minNode=findMin(bst);
     cout<<"min:"<<maxNode->val<<endl;
     TNode *v=findVal(bst, 5);
     cout<<"5:"<<v->val<<endl;
