@@ -9,7 +9,7 @@ typedef struct Node{
 
 TNode *createNode(int val)
 {
-    TNode *t=new TNode;
+    TNode *t=(TNode*)malloc(sizeof(TNode));
     t->val=val;
     return t;
 }
@@ -120,23 +120,7 @@ void remove(Bst &bst, int val){
         
 }
 
-void destroyBst(TNode* &bst)
-{
-    if(!bst)
-        return;
-    else
-    {
-        if(bst->left)
-            destroyBst(bst->left);
-        if(bst->right)
-            destroyBst(bst->right);
-        if((!bst->left) && (!bst->right))
-            delete(bst);
-            bst=NULL;
-    }
-    
 
-}
 int main()
 { 
     int n;
@@ -154,8 +138,6 @@ int main()
     TNode *v=findVal(bst, 5);
     cout<<"5:"<<v->val<<endl;
     remove(bst, 8);
-    inorder(bst);
-    destroyBst(bst);
-    cout<<bst->left->val<<endl;
-    
+    inorder(bst);  
+    return 0;
 }
